@@ -1,5 +1,8 @@
 Needs:
 pip install pdfminer.six python-docx spacy pandas nltk cohere skillNer
+
+bash:
+pip install -r requirements.txt
 python -m spacy download en
 
 Notes:
