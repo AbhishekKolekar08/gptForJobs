@@ -1,0 +1,8 @@
+Needs:
+pip install pdfminer.six python-docx spacy pandas nltk cohere
+python -m spacy download en
+
+Notes:
+Interesting cases:
+1) Spacy cannot extract 3 worded names (of format `firstname middlename lastname`)
+2) Phone numbers ideally need be under 10 digits. (So either no 0 or no country code)
