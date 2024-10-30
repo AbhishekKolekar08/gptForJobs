@@ -5,3 +5,5 @@ pandas
 nltk
 cohere
 skillNer
+requests
+beautifulsoup4
