@@ -7,13 +7,10 @@ from bs4 import BeautifulSoup
 import os
 import markdown
 
-# Initialize Cohere client with your API key
-co = cohere.Client("YOUImGXa6Wg0XgfsFdM0c2iIFOX3fM8UDMKzdGYZ")  # Replace with your actual API key
+co = cohere.Client("")  
 
-# Global variables
 pdf_path = None
 
-# Text extraction from PDF
 def extract_text_from_pdf(pdf_path):
     try:
         return extract_text(pdf_path)
@@ -21,7 +18,6 @@ def extract_text_from_pdf(pdf_path):
         dpg.set_value("output_text", f"Error: {e}")
         return None
 
-# Text cleaning for processing
 def clean_text(text):
     text = re.sub(r'\n+', '\n', text)  # Remove newlines
     text = re.sub(r'\s+', ' ', text)  # Remove multiple spaces
@@ -30,7 +26,6 @@ def clean_text(text):
     text = re.sub(r'\+46-\d{9}', lambda x: x.group().replace('-', ''), text)  # Clean phone numbers
     return text.strip()  # Trim redundant spaces
 
-# Extract job requirements and skills from a URL
 def extract_skills(url):
     try:
         response = requests.get(url)
@@ -64,7 +59,6 @@ def extract_skills(url):
         dpg.set_value("output_text", "Job description section not found.")
         return None
 
-# Match skills in resume with job requirements
 def skills_match(resume_text, reqs):
     response = co.chat(
         message=f"Following is my resume:\n{resume_text}\n<end of resume>\n"
@@ -76,19 +70,16 @@ def skills_match(resume_text, reqs):
     )
     return response.text
 
-# Process results without threading
 def display_results(sender, app_data):
     url = dpg.get_value("url_input")
     if not url:
         dpg.set_value("output_text", "Please enter a job description URL.")
         return
     
-    # Extract job skills and requirements
     skills_req = extract_skills(url)
     if skills_req is None:
         return
     
-    # Extract and clean resume text
     if not pdf_path:
         dpg.set_value("output_text", "Please upload a resume PDF.")
         return
@@ -98,29 +89,24 @@ def display_results(sender, app_data):
         return
     resume_text = clean_text(resume_text)
     
-    # Match skills and display output
     markdown_output = skills_match(resume_text, skills_req)
     
-    # Convert Markdown to HTML and display it
     html_output = markdown.markdown(markdown_output)
     dpg.set_value("output_text", html_output)  # Display HTML content
 
-# Reset function to clear all inputs and outputs
 def reset_fields():
     global pdf_path
     pdf_path = None
     dpg.set_value("pdf_filename", "No file selected")
     dpg.set_value("url_input", "")
-    dpg.set_value("output_text", "")  # Clear the output
+    dpg.set_value("output_text", "") 
 
-# Upload PDF
 def upload_pdf(sender, app_data):
     global pdf_path
-    pdf_path = app_data[0]  # Get the file path from the dialog
+    pdf_path = app_data[0] 
     if pdf_path:
         dpg.set_value("pdf_filename", f"Selected file: {os.path.basename(pdf_path)}")
 
-# Main GUI setup
 def main():
     dpg.create_context()
     dpg.create_viewport(title='Resume and Job Matching Tool', width=700, height=500)
