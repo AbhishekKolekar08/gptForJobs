@@ -1,8 +1,9 @@
 # Setup
-Step 1:
+Step 1: Clone repository
+Step 2:
 `pip install -r requirements.txt`
 
-Step 2: Open `gptforjob_v2.ipynb`
+Step 3: Open `gptforjob_v2.ipynb`
 
 # Modifications before running
 - Change `url` to whatever job you want to apply to
