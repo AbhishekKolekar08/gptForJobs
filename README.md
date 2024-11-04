@@ -5,8 +5,8 @@ Step 1:
 Step 2: Open `gptforjob_v2.ipynb`
 
 # Modification before running
-Change `url` to whatever job you want to apply to
-Change `filename` to resume you want to check
+- Change `url` to whatever job you want to apply to
+- Change `filename` to resume you want to check
 
 # Disclaimer
 - It is based on [Cohere LLM](https://cohere.com/), or simply put AI which may not always be (ironically) intelligent, so the outputs are sometimes generic.
