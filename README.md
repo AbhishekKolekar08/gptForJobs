@@ -4,7 +4,7 @@ Step 1:
 
 Step 2: Open `gptforjob_v2.ipynb`
 
-# Modification before running
+# Modifications before running
 - Change `url` to whatever job you want to apply to
 - Change `filename` to resume you want to check
 
