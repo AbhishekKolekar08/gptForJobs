@@ -15,5 +15,5 @@ Step 2: Open `gptforjob_v2.ipynb`
 
 # Roadmap
 (If  I still remain interested)
-- [ ] v3 - Has GUI (non functional right now)
+- [ ] v3 - Will have GUI (nonfunctional right now)
 - [ ] v4 - Training an LLM on resume matching
