@@ -1,9 +1,5 @@
 pdfminer.six
-python-docx
-spacy
 pandas
-nltk
 cohere
-skillNer
 requests
 beautifulsoup4
