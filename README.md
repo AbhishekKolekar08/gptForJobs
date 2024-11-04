@@ -15,5 +15,5 @@ Step 2: Open `gptforjob_v2.ipynb`
 
 # Roadmap
 (If  I still remain interested)
-- [ ] v3 - Will have GUI (nonfunctional right now)
-- [ ] v4 - Training an LLM on resume matching
+- [ ] v3 (nonfunctional right now) - Will have [GUI](https://github.com/hoffstadt/DearPyGui) or may be a locally hosted webpage as GUI, idk
+- [ ] v4 - [Training an LLM for resume matching](https://huggingface.co/datasets/cnamuangtoun/resume-job-description-fit) 
