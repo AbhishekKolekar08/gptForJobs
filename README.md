@@ -14,5 +14,5 @@ Change `filename` to resume you want to check
 
 # Roadmap
 (If  I still remain interested)
-- [ ] GUI
-- [ ] Training an LLM on resume matching
+- [ ] v3 - Has GUI
+- [ ] v4 - Training an LLM on resume matching
